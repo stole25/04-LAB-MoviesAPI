@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Data;
+using MoviesAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnString")
                          ?? throw new InvalidOperationException("Connection string DefaultConnString not found.")));
+builder.Services.AddScoped<MoviesService>();
 
 var app = builder.Build();
 
