@@ -36,12 +36,5 @@ namespace MoviesAPI.Controllers
             var movies = MoviesService.GetMovieById(id);
             return Ok(movies);
         }
-
-        [HttpPut("id")]
-        public IActionResult UpdateMoviesById([FromQuery] int id, [FromBody] MoviesVM moviesVm)
-        {
-            var updatedMovies = MoviesService.UpdateMoviesById(id, moviesVm);
-            return Ok(updatedMovies);
-        }
     }
 }

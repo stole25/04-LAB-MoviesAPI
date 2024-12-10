@@ -32,18 +32,5 @@ public class MoviesService
     {
         return _context.Movies.FirstOrDefault(x => x.Id==id);
     }
-
-    public Movies UpdateMoviesById(int id, MoviesVM moviesVm)
-    {
-        var movies = _context.Movies.FirstOrDefault(x => x.Id == id);
-        if (movies != null)
-        {
-            Movies.Name = moviesVm.Name;
-            Movies.Genre = moviesVm.Genre;
-            Movies.Year = moviesVm.Year;
-            _context.SaveChanges();
-        }
-
-        return movies;
-    }
+    
 }
