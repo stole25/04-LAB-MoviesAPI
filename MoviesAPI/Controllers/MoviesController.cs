@@ -36,5 +36,12 @@ namespace MoviesAPI.Controllers
             var movies = MoviesService.GetMovieById(id);
             return Ok(movies);
         }
+
+        [HttpDelete("id")]
+        public IActionResult DeleteMovies([FromQuery] int id)
+        {
+            MoviesService.DeleteMovies(id);
+            return Ok();
+        }
     }
 }

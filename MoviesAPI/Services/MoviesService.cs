@@ -32,5 +32,11 @@ public class MoviesService
     {
         return _context.Movies.FirstOrDefault(x => x.Id==id);
     }
-    
+
+    public void DeleteMovies(int id)
+    {
+        var movies = _context.Movies.FirstOrDefault(x => x.Id == id);
+        _context.Movies.Remove(movies);
+        _context.SaveChanges();
+    }
 }
