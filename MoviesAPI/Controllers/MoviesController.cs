@@ -37,11 +37,11 @@ namespace MoviesAPI.Controllers
             return Ok(movies);
         }
 
-        [HttpPut("id")]
-        public IActionResult UpdateMoviesById([FromQuery] int id, [FromBody] MoviesVM moviesVm)
+        [HttpDelete("id")]
+        public IActionResult DeleteMovies([FromQuery] int id)
         {
-            var updatedMovies = MoviesService.UpdateMoviesById(id, moviesVm);
-            return Ok(updatedMovies);
+            MoviesService.DeleteMovies(id);
+            return Ok();
         }
     }
 }
